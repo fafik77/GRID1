@@ -23,6 +23,7 @@ public class WeaponFire : Weapon_base
 
         Bullet bullet = Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation);
         bullet.damage = weaponDamage;
+        bullet.SetOwner(ignoreSelf);
         Rigidbody2D rbBull = bullet.GetComponent<Rigidbody2D>();
         rbBull.linearVelocity = -firePoint.right * bulletSpeed;
 

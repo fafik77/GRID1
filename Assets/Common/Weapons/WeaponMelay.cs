@@ -42,7 +42,7 @@ public class WeaponMelay : Weapon_base
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("notTopLayer: " + notTopLayer);
+        //Debug.Log("notTopLayer: " + notTopLayer);
         if (notTopLayer)
         {
             return;
@@ -66,8 +66,8 @@ public class WeaponMelay : Weapon_base
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("notTopLayer: " + notTopLayer);
-        Debug.Log(collision.name);
+        //Debug.Log("notTopLayer: " + notTopLayer);
+        //Debug.Log(collision.name);
         if (collision != null)
         {
             Entity entity = collision.GetComponent<Entity>();

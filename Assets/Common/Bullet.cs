@@ -5,13 +5,14 @@ public class Bullet : Entity
     //https://www.youtube.com/watch?v=8TqY6p-PRcs
     [SerializeField] public double damage;
 
-    Entity owner;
+    protected Entity owner;
     public Bullet(double damage=0, Entity owner = null)
     {
         SetHp(0.1f);
         this.damage = damage;
         this.owner = owner;
     }
+    public void SetOwner(Entity owner) { this.owner = owner; }
 
     //yes we want damageble bullets, that way 2 bullets coliding will destroy each other
     public override void TakeDamage(double amount, Entity atacker)
@@ -39,11 +40,11 @@ public class Bullet : Entity
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collision");
+        //Debug.Log("collision..");
         Entity entity = collision.collider.GetComponent<Entity>();
         if (entity != null)
         {
-            Debug.Log("collision with: " + entity.name);
+            //Debug.Log("collision with: " + entity.name +", omits: "+ owner);
             if (entity == owner) return; //dont damage owner
             //if (owner && owner is Player && entity is Player) return;//
             if (owner && owner is Enemy && entity is Enemy) return; //no (un)friendly fire

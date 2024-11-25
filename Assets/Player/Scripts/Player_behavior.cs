@@ -38,8 +38,7 @@ public class Player_behavior : MonoBehaviour
             weapon_MelayArmScript = weapon_MelayArm.GetComponent<Weapon_base>();
             
             if (weapon_MelayArmScript != null)
-            {
-                Debug.Log("weapon=", weapon_MelayArmScript);
+            { 
                 weapon_MelayArmScript.SetIgnoreSelf(playerEntity);
             }
         }
@@ -82,6 +81,7 @@ public class Player_behavior : MonoBehaviour
             //WeaponFire weaponFire = weapon_FireArm.GetComponent<WeaponFire>();
             if (!weapon_FireArmScript.IsOnTimeout())
             {
+                weapon_FireArmScript.SetIgnoreSelf(playerEntity);
                 weapon_FireArmScript.Fire(); //shoot pistol
             }
         }
@@ -90,6 +90,7 @@ public class Player_behavior : MonoBehaviour
             //WeaponMelay weaponMelay = weapon_MelayArm.GetComponent<WeaponMelay>();
             if (!weapon_MelayArmScript.IsOnTimeout())
             {
+                weapon_MelayArmScript.SetIgnoreSelf(playerEntity);
                 animator.SetTrigger("Attack"); //Sword Swing Animation+Action
                 weapon_MelayArmScript.Fire(); //Sword Swing event
             }
