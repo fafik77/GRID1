@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 4248784155976266784}
   - component: {fileID: 2700871319956982490}
   - component: {fileID: 6688099326482548007}
+  - component: {fileID: 5781059931274323794}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -315,6 +316,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5781059931274323794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024057965859553739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7acbf1258a0e81f458913c2765494654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDamage: 1
+  weaponDelay: 1
+  melayRange: 1
+  GFX_Sword: {fileID: 0}
 --- !u!1 &7888648084970058480
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7141775805202874407}
-  - component: {fileID: 9194066724976609921}
+  - component: {fileID: 8095942039984316822}
   m_Layer: 0
   m_Name: MelayArm
   m_TagString: Untagged
@@ -348,7 +365,7 @@ Transform:
   - {fileID: 2535089294115312208}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9194066724976609921
+--- !u!114 &8095942039984316822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -363,3 +380,4 @@ MonoBehaviour:
   weaponDamage: 1
   weaponDelay: 1
   melayRange: 1
+  GFX_Sword: {fileID: 4248784155976266784}

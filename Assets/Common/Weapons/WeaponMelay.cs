@@ -8,15 +8,28 @@ public class WeaponMelay : Weapon_base
 
     //max range for melay attacks (we cheat the system: melay weapons will use the same system for calculating vectors, but instead of shooting a bullet, they will fire a raycast that has max range )
     [SerializeField] public float melayRange = 1;
-    //[SerializeField] protected Transform GFX_Sword;
+    [SerializeField] protected Transform GFX_Sword;
 
     private TrailRenderer trailRenderer;
     private Vector3 origScaleSword;
+    //becouse Unity
+    private WeaponMelay weapon_BaseLevel;
+    private bool notTopLayer = false;
+
+    public void SetmelayRange(float melayRange) { this.melayRange = melayRange; }
 
 
     public override void Fire()
     {
-        Debug.Log("melay fire");
+        if (weapon_BaseLevel != null) 
+        {
+            weapon_BaseLevel.melayRange = melayRange;
+            weapon_BaseLevel.weaponDamage = weaponDamage;
+            weapon_BaseLevel.weaponDelay = weaponDelay;
+            weapon_BaseLevel.ignoreSelf = ignoreSelf;
+            weapon_BaseLevel.notTopLayer = true;
+        }
+        //Debug.Log("melay fire");
         weaponTimeout = weaponDelay;
         if (trailRenderer != null)
         {
@@ -29,8 +42,17 @@ public class WeaponMelay : Weapon_base
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //origScaleSword = GFX_Sword.localScale;
-        trailRenderer = gameObject.GetComponentInChildren<TrailRenderer>();
+        Debug.Log("notTopLayer: " + notTopLayer);
+        if (notTopLayer)
+        {
+            return;
+        }
+        //top layer only
+        weapon_BaseLevel = GetComponentInChildren<WeaponMelay>(true);
+        weapon_BaseLevel.notTopLayer = true;
+        if(GFX_Sword != null)
+            origScaleSword = GFX_Sword.localScale;
+        trailRenderer = gameObject.GetComponentInChildren<TrailRenderer>(true);
     }
 
     // Update is called once per frame
@@ -44,6 +66,7 @@ public class WeaponMelay : Weapon_base
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("notTopLayer: " + notTopLayer);
         Debug.Log(collision.name);
         if (collision != null)
         {

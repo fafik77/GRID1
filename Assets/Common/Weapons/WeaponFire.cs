@@ -21,8 +21,7 @@ public class WeaponFire : Weapon_base
     {
         weaponTimeout = weaponDelay;
 
-        Bullet bullet = Instantiate(bulletPrefab);
-        bullet.transform.position = firePoint.transform.position;
+        Bullet bullet = Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation);
         bullet.damage = weaponDamage;
         Rigidbody2D rbBull = bullet.GetComponent<Rigidbody2D>();
         rbBull.linearVelocity = -firePoint.right * bulletSpeed;

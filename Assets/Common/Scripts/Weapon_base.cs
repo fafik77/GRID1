@@ -17,7 +17,10 @@ public abstract class Weapon_base : MonoBehaviour
     public bool IsOnTimeout() {  return weaponTimeout > 0f; }
     //true if 
     public bool IsWeaponAvailable() { return weaponDamage > 0f; }
+
     public void SetIgnoreSelf(Entity ignoreSelf) { this.ignoreSelf = ignoreSelf; }
+    public void SetweaponDamage(float weaponDamage) { this.weaponDamage = weaponDamage; }
+    public void SetweaponDelay(float weaponDelay) { this.weaponDelay = weaponDelay; }
 
     private void FixedUpdate()
     {

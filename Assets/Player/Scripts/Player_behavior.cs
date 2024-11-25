@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [SelectionBase]
@@ -14,7 +15,8 @@ public class Player_behavior : MonoBehaviour
     [SerializeField] Transform weapon_FireArm;
     [SerializeField] Transform weapon_MelayArm;
 
-
+    private Weapon_base weapon_FireArmScript;
+    private Weapon_base weapon_MelayArmScript;
     private Vector2 moveDirection = Vector2.zero;
     private Vector2 mousePosition;
     private Player playerEntity;
@@ -33,17 +35,19 @@ public class Player_behavior : MonoBehaviour
         }
 
         if (weapon_MelayArm != null) {
-            Weapon_base weapon = weapon_MelayArm.GetComponent<Weapon_base>();
-            if (weapon != null)
+            weapon_MelayArmScript = weapon_MelayArm.GetComponent<Weapon_base>();
+            
+            if (weapon_MelayArmScript != null)
             {
-                weapon.SetIgnoreSelf(playerEntity);
+                Debug.Log("weapon=", weapon_MelayArmScript);
+                weapon_MelayArmScript.SetIgnoreSelf(playerEntity);
             }
         }
         if (weapon_FireArm != null) {
-            Weapon_base weapon = weapon_FireArm.GetComponent<Weapon_base>();
-            if (weapon != null)
+            weapon_FireArmScript = weapon_FireArm.GetComponent<Weapon_base>();
+            if (weapon_FireArmScript != null)
             {
-                weapon.SetIgnoreSelf(playerEntity);
+                weapon_FireArmScript.SetIgnoreSelf(playerEntity);
             }
         }
     }
@@ -73,21 +77,21 @@ public class Player_behavior : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0f, 0);
         }
 
-        if (Input.GetMouseButtonDown(1) && weapon_FireArm!=null)    //Rmb = gun
+        if (Input.GetMouseButtonDown(1) && weapon_FireArmScript!=null)    //Rmb = gun
         {
-            WeaponFire weaponFire = weapon_FireArm.GetComponent<WeaponFire>();
-            if (weaponFire != null && !weaponFire.IsOnTimeout())
+            //WeaponFire weaponFire = weapon_FireArm.GetComponent<WeaponFire>();
+            if (!weapon_FireArmScript.IsOnTimeout())
             {
-                weaponFire.Fire();
+                weapon_FireArmScript.Fire(); //shoot pistol
             }
         }
-        if (Input.GetMouseButtonDown(0) && weapon_MelayArm != null) //Lmb = sword
+        if (Input.GetMouseButtonDown(0) && weapon_MelayArmScript != null) //Lmb = sword
         {
-            WeaponMelay weaponMelay = weapon_MelayArm.GetComponent<WeaponMelay>();
-            if (weaponMelay != null && !weaponMelay.IsOnTimeout())
+            //WeaponMelay weaponMelay = weapon_MelayArm.GetComponent<WeaponMelay>();
+            if (!weapon_MelayArmScript.IsOnTimeout())
             {
-                animator.SetTrigger("Attack");
-                weaponMelay.Fire();
+                animator.SetTrigger("Attack"); //Sword Swing Animation+Action
+                weapon_MelayArmScript.Fire(); //Sword Swing event
             }
         }
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
