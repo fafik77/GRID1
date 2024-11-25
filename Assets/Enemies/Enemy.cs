@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+
+    //https://www.youtube.com/watch?v=2SXa10ILJms&list=PL3Qcy-_BC-b5s9jGuUiuTp2e6cyi8pC1I
+    //https://www.youtube.com/watch?v=NZnQ8rw5xjc&list=PL3Qcy-_BC-b5s9jGuUiuTp2e6cyi8pC1I&index=2   (with Events)
     public override void TakeDamage(double amount, Entity atacker = null)
     {
         if (atacker == this) return; //dont damage self

@@ -6,6 +6,7 @@ abstract public class Entity : MonoBehaviour
     [SerializeField] public double hp;
     [SerializeField] protected ParticleSystem OnDeathParticleSystem;
     [SerializeField] protected GameObject OnDamageParticleSystem;
+    //[SerializeField] protected ParticleSystem OnDamageParticleSystem;
     //https://www.youtube.com/watch?v=_z68_OoC_0o&list=PL3Qcy-_BC-b5n4B30Le94vdRf03kbD7V3&index=80
     //https://www.youtube.com/watch?v=faKPt0cM2VI&list=PL3Qcy-_BC-b5n4B30Le94vdRf03kbD7V3&index=81
     protected ParticleSystem particleDamage;
@@ -29,7 +30,7 @@ abstract public class Entity : MonoBehaviour
     }
 
     //apply death
-    protected void _Death(bool playDeathAnim=true)
+    virtual protected void _Death(bool playDeathAnim=true)
     {
         if (playDeathAnim)
         {

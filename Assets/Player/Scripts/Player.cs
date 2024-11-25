@@ -14,23 +14,21 @@ public class Player : Entity
 
     public override void TakeDamage(double amount, Entity atacker = null)
     {
+        if (atacker == this) return; //dont damage self
+
+        hp -= amount;
 
         if (hp <= 0)
         {
             _Death();
             return;
         }
+        if (amount > 0)
+        {
+            PlayDamageAnimation();
+        }
     }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //override protected void _Death(bool playDeathAnim = true)
+    //{
+    //}
 }

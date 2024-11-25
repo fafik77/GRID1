@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [SelectionBase]
 public class Player_behavior : MonoBehaviour
@@ -109,8 +110,10 @@ public class Player_behavior : MonoBehaviour
 
         Vector2 aimDirection = mousePosition - rb2.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 180f;
+        //float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
 
-        weapon_FireArm.rotation = Quaternion.Euler(0, 0, aimAngle);
+        weapon_FireArm.rotation = Quaternion.Euler(Vector3.forward * aimAngle);
+        //weapon_FireArm.rotation = Quaternion.Euler(0, 0, aimAngle);
     }
 
 }
