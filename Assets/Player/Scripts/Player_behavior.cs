@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -50,6 +51,12 @@ public class Player_behavior : MonoBehaviour
                 weapon_FireArmScript.SetIgnoreSelf(playerEntity);
             }
         }
+
+        Vector3 posRandom = gameObject.transform.position;
+        UnityEngine.Random.InitState( (int)System.DateTime.Now.Ticks);
+        posRandom.x = UnityEngine.Random.Range(-3, 3f);
+        posRandom.y = UnityEngine.Random.Range(-3, 3f);
+        gameObject.transform.position = posRandom;
     }
 
     // Update is called once per frame

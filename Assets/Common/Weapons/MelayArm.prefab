@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acbf1258a0e81f458913c2765494654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDamage: 1
+  weaponDamage: 2
   weaponDelay: 1
   melayRange: 1
   GFX_Sword: {fileID: 4248784155976266784}

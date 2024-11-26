@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c81b2324beda174d96a2ed9ee02e70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDamage: 10
+  weaponDamage: 2
   weaponDelay: 1
   firePoint: {fileID: 8078832917868765012}
   bulletPrefab: {fileID: 2486971236045580083, guid: 2ccaae264281ab345b9bd2abee80ed41, type: 3}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : Entity
 {
@@ -34,4 +35,9 @@ public class Enemy : Entity
     //void Update()
     //{ 
     //}
+
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene("Chest");//przejscie do poprzedniej sceny
+    }
 }

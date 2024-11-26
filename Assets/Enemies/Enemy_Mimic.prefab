@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333d34e38550fa7438b46d248d8a3269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  hp: 10
   OnDeathParticleSystem: {fileID: 9201369901821458379, guid: 81e663fa97364e343a66aee47d06e8c8, type: 3}
   OnDamageParticleSystem: {fileID: 5592512940320086235}
 --- !u!114 &2473150974799661274
