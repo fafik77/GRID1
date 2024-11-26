@@ -42,6 +42,8 @@ public class Player_behavior : MonoBehaviour
             if (weapon_MelayArmScript != null)
             { 
                 weapon_MelayArmScript.SetIgnoreSelf(playerEntity);
+                weapon_MelayArmScript.weaponDamage += Singletone.instance.player_melayDamage;
+                weapon_MelayArmScript.weaponDelay += Singletone.instance.player_melaySpeed;
             }
         }
         if (weapon_FireArm != null) {
@@ -49,11 +51,12 @@ public class Player_behavior : MonoBehaviour
             if (weapon_FireArmScript != null)
             {
                 weapon_FireArmScript.SetIgnoreSelf(playerEntity);
+                weapon_FireArmScript.weaponDamage += Singletone.instance.player_gunDamage;
+                weapon_FireArmScript.weaponDelay += Singletone.instance.player_gunSpeed;
             }
         }
 
         Vector3 posRandom = gameObject.transform.position;
-        UnityEngine.Random.InitState( (int)System.DateTime.Now.Ticks);
         posRandom.x = UnityEngine.Random.Range(-3, 3f);
         posRandom.y = UnityEngine.Random.Range(-3, 3f);
         gameObject.transform.position = posRandom;

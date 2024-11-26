@@ -71,4 +71,15 @@ public class AIChase : MonoBehaviour
         }
         
     }
+    private void OnDestroy()
+    {
+        if (chaseTargetPlayer != null)
+        {
+            Player playerScript = chaseTargetPlayer.GetComponentInChildren<Player>(false);
+            if (playerScript != null)
+            {
+                playerScript.SaveHp();
+            }
+        }
+    }
 }

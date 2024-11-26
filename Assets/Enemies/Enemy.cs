@@ -25,7 +25,11 @@ public class Enemy : Entity
             PlayDamageAnimation();
         }
     }
-
+    private void Awake()
+    {
+        if (Singletone.instance.enemyHp > 0)
+            this.hp = Singletone.instance.enemyHp;
+    }
     //// Start is called once before the first execution of Update after the MonoBehaviour is created
     //void Start()
     //{
@@ -38,6 +42,6 @@ public class Enemy : Entity
 
     private void OnDestroy()
     {
-        SceneManager.LoadScene("Chest");//przejscie do poprzedniej sceny
+        SceneManager.LoadScene("Chest"); //przejscie do poprzedniej sceny
     }
 }
