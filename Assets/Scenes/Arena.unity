@@ -11642,6 +11642,10 @@ PrefabInstance:
       propertyPath: hpText
       value: 
       objectReference: {fileID: 1599303187}
+    - target: {fileID: 2872480510450365515, guid: c00c0e57234cbd649bbb0dbd1021904b, type: 3}
+      propertyPath: statsText
+      value: 
+      objectReference: {fileID: 362004375}
     - target: {fileID: 5033358109537779995, guid: c00c0e57234cbd649bbb0dbd1021904b, type: 3}
       propertyPath: m_Name
       value: Player
