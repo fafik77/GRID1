@@ -125,7 +125,7 @@ public class ChestClick : MonoBehaviour
             canvas.gameObject.SetActive(true);
             rollResults.Reset();
 
-            int action = UnityEngine.Random.Range(0, 3);
+            int action = UnityEngine.Random.Range(0, 4);
             rollResults.SetLoot(action);
             switch (action)
             {
@@ -153,9 +153,10 @@ public class ChestClick : MonoBehaviour
                         break;
                     }
                  case 3: //set player max hp and renew hp
+                 case 4: //set player max hp and renew hp
                     {
-                        canvasText.text = "Max Hp increased by 0.5\n Max Hp: " + Singletone.instance.playerMaxHp;
                         Singletone.instance.playerHp = Singletone.instance.playerMaxHp += 0.5f;
+                        canvasText.text = "Max Hp increased by 0.5\n Max Hp: " + Singletone.instance.playerMaxHp;
                         break;
                     }
             }
